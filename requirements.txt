@@ -7,4 +7,5 @@ plotly
 matplotlib
 joblib
 streamlit
-sklearn
+scikit-learn
+#newly push git push -f origin main
