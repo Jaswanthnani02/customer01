@@ -1,5 +1,4 @@
 import streamlit as st
-from PIL import Image
 
 # Set page title and company logo
 st.set_page_config(
@@ -28,45 +27,17 @@ st.image(resized_image)
 
 # Add a title and description
 st.title("Welcome to Your Interactive Company App!")
-st.write("Explore different cases and visualize data interactively.")
+st.write("Explore different cases and navigate to specific links.")
 
-# Dropdown for selecting cases
-selected_case = st.selectbox("Select a Case:", ["Case One", "Case Two", "Case Three"])
+# Case buttons
+if st.button("Case One"):
+    st.markdown("[Link to Case One](https://innodataengineers.wordpress.com)")
 
-# Display specific content based on the selected case
-if selected_case == "Case One":
-    st.header("Case One Details")
-    st.write("Details about Case One goes here.")
-elif selected_case == "Case Two":
-    st.header("Case Two Details")
-    st.write("Details about Case Two goes here.")
-else:
-    st.header("Case Three Details")
-    st.write("Details about Case Three goes here.")
+if st.button("Case Two"):
+    st.markdown("[Link to Case Two](https://www.example.com/case2)")
 
-# Interactive chart based on user input
-st.header("Interactive Chart")
-
-# Sliders for user input
-a = st.slider('A', 1, 100, 25)
-b = st.slider('B', 1, 100, 50)
-c = st.slider('C', 1, 100, 75)
-d = st.slider('D', 1, 100, 10)
-
-# Data for the chart
-categories = ['A', 'B', 'C', 'D']
-values = [a, b, c, d]
-
-# Create a bar chart using Matplotlib
-import matplotlib.pyplot as plt
-
-plt.figure(figsize=(8, 6))
-plt.bar(categories, values, color='skyblue')
-plt.xlabel('Category')
-plt.ylabel('Values')
-plt.title('Interactive Bar Chart')
-plt.xticks(rotation=45)
-st.pyplot(plt)
+if st.button("Case Three"):
+    st.markdown("[Link to Case Three](https://www.example.com/case3)")
 
 # Add a fun fact
 st.sidebar.header("Fun Fact")
