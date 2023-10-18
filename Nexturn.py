@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from PIL import Image
 
+# Open the image file
+image = Image.open("LOGO.png")
 # Set page title and company logo
 st.set_page_config(
     page_title="Interactive Company App",
