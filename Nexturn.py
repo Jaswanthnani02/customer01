@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 # Set page title and company logo
 st.set_page_config(
@@ -15,15 +16,6 @@ width, height = image.size
 
 # Calculate the desired width (in this example, 500 pixels)
 desired_width = 500
-
-# Calculate the new height to maintain the aspect ratio
-new_height = int((desired_width / width) * height)
-
-# Resize the image
-resized_image = image.resize((desired_width, new_height))
-
-# Company logo
-st.image(resized_image)
 
 # Add a title and description
 st.title("Welcome to Your Interactive Company App!")
