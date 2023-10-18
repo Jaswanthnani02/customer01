@@ -1,10 +1,6 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
 from PIL import Image
 
-# Open the image file
-image = Image.open("LOGO.png")
 # Set page title and company logo
 st.set_page_config(
     page_title="Interactive Company App",
@@ -12,8 +8,23 @@ st.set_page_config(
     layout="wide"
 )
 
+# Open the image file
+image = Image.open("LOGO.png")
+
+# Get the dimensions of the image
+width, height = image.size
+
+# Calculate the desired width (in this example, 500 pixels)
+desired_width = 500
+
+# Calculate the new height to maintain the aspect ratio
+new_height = int((desired_width / width) * height)
+
+# Resize the image
+resized_image = image.resize((desired_width, new_height))
+
 # Company logo
-st.image("LOGO.png", use_container_width=True)
+st.image(resized_image)
 
 # Add a title and description
 st.title("Welcome to Your Interactive Company App!")
@@ -33,7 +44,7 @@ else:
     st.header("Case Three Details")
     st.write("Details about Case Three goes here.")
 
-# Interactive chart based on user input (using Matplotlib)
+# Interactive chart based on user input
 st.header("Interactive Chart")
 
 # Sliders for user input
@@ -47,6 +58,8 @@ categories = ['A', 'B', 'C', 'D']
 values = [a, b, c, d]
 
 # Create a bar chart using Matplotlib
+import matplotlib.pyplot as plt
+
 plt.figure(figsize=(8, 6))
 plt.bar(categories, values, color='skyblue')
 plt.xlabel('Category')
